@@ -1,0 +1,32 @@
+{
+  "teachers": [
+    {
+      "gender": "male",
+      "title": "",
+      "full_name": "Віталій Моцний",
+      "city": "Kyiv",
+      "state": "",
+      "country": "Ukraine",
+      "postcode": "",
+      "coordinates": {
+        "latitude": "-",
+        "longitude": "-"
+      },
+      "timezone": {
+        "offset": "-",
+        "description": "-"
+      },
+      "email": "mocnijvitalij@gmail.com",
+      "b_date": "2005-02-12",
+      "age": 20,
+      "phone": "0961234100",
+      "picture_large": "https://randomuser.me/api/portraits/lego/1.jpg",
+      "picture_thumbnail": "https://randomuser.me/api/portraits/lego/1.jpg",
+      "id": "grbhkpx",
+      "favorite": true,
+      "course": "Програмування",
+      "bg_color": "#f0f0f0",
+      "note": null
+    }
+  ]
+}

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+    <script src="lab6.js" type="module"></script>
+    <script src="script.js"></script>
+    <title>Teachinder</title>
+</head>
+
+<body>
+
+    <div class="content">
+        <header>
+            <div class="top-bar-container">
+                <h1 class="title">Teachinder</h1>
+                <form class="search-container">
+                    <input type="search" class="search-field" placeholder="Name, note or age to search">
+                    <input type="button" class="search-btn" value="Search">
+                </form>
+            </div>
+
+            <div class="menu-container">
+                <table>
+                    <tr>
+                        <td class="menu-item">Teachers</td>
+                        <td class="menu-item">Statistics</td>
+                        <td class="menu-item">Favorites</td>
+                        <td class="menu-item">About</td>
+                    </tr>
+                </table>
+                <button onclick="openPopup('add-teacher-popup')" class="add-teacher-btn">Add teacher</button>
+            </div>
+        </header>
+
+        <main>
+            <article> <!-- Top teachers -->
+                <hr>
+
+                <h1>Top Teachers</h1>
+                <div class="top-teacher-container">
+                    <table class="teacher-filter">
+                        <tr>
+                            <td class="teacher-filter-cell">
+                                <label for="age" class="filter-select-label">Age</label>
+                                <select name="age" id="age" class="filter-select">
+                                    <option value="">All</option>
+                                    <option value="18-31">18-31</option>
+                                    <option value="32-45">32-45</option>
+                                    <option value="45-59">45-59</option>
+                                    <option value="60+">60+</option>
+                                </select>
+                            </td>
+
+                            <td class="teacher-filter-cell">
+                                <label for="country" class="filter-select-label">Country</label>
+                                <select name="country" id="country" class="filter-select">
+                                    <option value="">All</option>
+                                    <option value="Norway">Norway</option>
+                                    <option value="Denmark">Denmark</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="Ireland">Ireland</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="United States">United States</option>
+                                    <option value="Finland">Finland</option>
+                                    <option value="Turkey">Turkey</option>
+                                    <option value="Iran">Iran</option>
+                                    <option value="Switzerland">Switzerland</option>
+                                    <option value="Netherlands">Netherlands</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="France">France</option>
+                                    <option value="Spain">Spain</option>
+                                    <option value="New Zealand">New Zealand</option>
+                                </select>
+                            </td>
+                            <td class="teacher-filter-cell">
+                                <label for="sex" class="filter-select-label">Sex</label>
+                                <select name="sex" id="sex" class="filter-select">
+                                    <option value="">All</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </td>
+
+                            <td class="teacher-filter-cell">
+                                <input type="checkbox" id="only-photo" name="only-photo">
+                                <label for="only-photo" class="checkbox-label">Only with photo</label>
+                            </td>
+
+                            <td class="teacher-filter-cell">
+                                <input type="checkbox" id="only-favorite" name="only-favorite">
+                                <label for="only-favorite" class="checkbox-label">Only favorites</label>
+                            </td>
+
+                            <td class="teacher-filter-cell">
+                                <button class="load-more-btn" id="load-more-btn">Load more</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <div class="top-teacher-grid" id="top-teacher-grid"></div>
+                </div>
+
+            </article>
+
+            <article> <!-- Statistics -->
+                <hr>
+                <h1>Statistics</h1>
+                <div class="chart-wrapper">
+                    <canvas id="pieChart"></canvas>
+                </div>
+
+            </article>
+
+            <article> <!-- Favorites -->
+                <hr>
+
+                <h1>Favorites</h1>
+
+                <div class="favorites-container" id="favorites-container"></div>
+            </article>
+
+            <article class="description-article"> <!-- Description -->
+                <hr>
+
+                <p class="description-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe nam nihil cum, similique quis quasi
+                    odio minima libero enim repellendus harum molestiae voluptatibus dolorum vero quibusdam culpa dolor
+                    rem consequuntur.
+                    <br>
+                </p>
+                <p class="description-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis fugiat fuga deserunt in quo eius
+                    eligendi voluptate ea, accusamus, fugit dolorem recusandae iure?
+                    <br>
+                </p>
+                <p class="description-text">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores placeat quo repellat fuga vel
+                    natus perferendis?
+                </p>
+
+            </article>
+        </main>
+
+        <footer>
+            <div class="menu-container">
+                <table>
+                    <tr>
+                        <td class="menu-item">Teachers</td>
+                        <td class="menu-item">Statistic</td>
+                        <td class="menu-item">Favorites</td>
+                        <td class="menu-item">About</td>
+                    </tr>
+                </table>
+                <button onclick="openPopup('add-teacher-popup')" class="add-teacher-btn">Add teacher</button>
+            </div>
+        </footer>
+    </div>
+
+    <div id="add-teacher-popup" class="add-teacher-popup">
+        <div class="add-teacher-popup-box">
+            <div class="popup-header">
+                <h2>Add Teacher</h2>
+                <span class="popup-close-btn" onclick="closePopup('add-teacher-popup')">&#215;</span>
+            </div>
+            <form class="add-teacher-popup-form">
+                <div class="row">
+                    <div class="row-content">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" placeholder="Enter name" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="row-content">
+                        <label for="speciality">Speciality *</label>
+                        <select id="speciality" required>
+                            <option>Mathematics</option>
+                            <option>Physics</option>
+                            <option>Chemistry</option>
+                            <option>Biology</option>
+                            <option>Art</option>
+                            <option>Statistics</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="row-content">
+                        <label for="new-user-country">Country *</label>
+                        <select id="new-user-country" required>
+                            <option value="" disabled selected>Select country</option>
+                            <option value="Norway">Norway</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="Australia">Australia</option>
+                            <option value="United States">United States</option>
+                            <option value="Finland">Finland</option>
+                            <option value="Turkey">Turkey</option>
+                            <option value="Iran">Iran</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="Canada">Canada</option>
+                            <option value="France">France</option>
+                            <option value="Spain">Spain</option>
+                            <option value="New Zealand">New Zealand</option>
+                        </select>
+                    </div>
+                    <div class="row-content">
+                        <label for="city">City</label>
+                        <input type="text" id="city">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="row-content">
+                        <label for="email">Email * <small class="phone-hint">Format: example@domain.com</small></label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="row-content">
+                        <label for="phone">Phone * <small id="phone-format-hint" class="phone-hint"></small></label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="row-content">
+                        <label for="dob">Date of birth *</label>
+                        <input type="date" id="dob" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label>Sex *</label>
+                    <div class="radio-group">
+                        <label for="male">Male</label>
+                        <input type="radio" id="male" name="gender" checked>
+                        <label for="female">Female</label>
+                        <input type="radio" id="female" name="gender">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="bg-color-label" for="bg-color">Background color</label>
+                    <input type="color" id="bg-color">
+                </div>
+
+                <div class="row">
+                    <div class="row-content">
+                        <label for="notes">Notes</label>
+                        <textarea id="notes"></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <button type="submit" class="add-teacher-popup-btn">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="teacher-info-popup" class="teacher-info-popup">
+        <div class="teacher-info-popup-box">
+            <div class="popup-header">
+                <h2>Teacher Info</h2>
+                <span class="popup-close-btn" onclick="closePopup('teacher-info-popup')">&#215;</span>
+            </div>
+
+            <div class="teacher-info-popup-content">
+                <img src="" alt="Teacher Photo">
+                <div class="teacher-info-popup-details">
+                    <div class="teacher-info-popup-top">
+                        <h1 class="teacher-info-popup-name"></h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teacher-info-popup-footer">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

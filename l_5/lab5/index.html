@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 5</title>
+    <link rel="stylesheet" href="scss/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+        <div class="up-header">
+            <nav class="desktop-menu">
+                <div class="up-menu">
+                    <img class="logo-desc" src="img/logo/logo.png" alt="Logo">
+                    <form id="searchForm">
+                        <input type="text" id="searchInput" placeholder="Name, note or age to search">
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="under-menu">
+                    <ul>
+                        <li><a href="#">Teachers</a></li>
+                        <li><a href="#">Statistics</a></li>
+                        <li><a href="#">Favorites</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                    <button class="button-add" type="submit">Add teacher</button>
+                </div>
+            </nav>
+            <div class="mob-head">
+                <img class="logo-mob" src="img/logo/logo.png" alt="Logo">
+                <div class="burger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu">
+            <div class="close-menu"></div>
+            <form>
+                <input type="text" placeholder="Name, note or age to search">
+                <button type="submit">Search</button>
+            </form>
+            <ul>
+                <li><a href="#">Teachers</a></li>
+                <li><a href="#">Statistics</a></li>
+                <li><a href="#">Favorites</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <button class="button-add" type="submit">Add teacher</button>
+        </div>
+    </div>
+    </header>
+
+    <div class="line"></div>
+
+    <section class="top-teachers">
+        <h1>Top Teachers</h1>
+        <div class="filters">
+            <div class="filter-group">
+                <label for="age">Age</label>
+                <select id="age">
+                    <option value="18-31">18-31</option>
+                    <option value="32-45">32-45</option>
+                    <option value="46+">46+</option>
+                </select>
+            </div>
+    
+            <div class="filter-group">
+                <label for="region">Region</label>
+                <select id="region">
+                    <option value="Europe">Europe</option>
+                    <option value="Asia">Asia</option>
+                    <option value="North America">North America</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+    
+            <div class="filter-group">
+                <label for="sex">Sex</label>
+                <select id="sex">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+    
+            <div class="filter-group">
+                <label>
+                    <input type="checkbox" id="onlyWithPhoto"> Only with photo
+                </label>
+            </div>
+    
+            <div class="filter-group">
+                <label>
+                    <input type="checkbox" id="onlyFavorites"> Only favorites
+                </label>
+            </div>
+
+        </div>
+            <div class="users-container" id="users-container">
+                
+            </div>
+            <div class="pagination" id="topTeachersPagination"></div>
+    </section>
+
+    <div id="teacherModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-head">
+                <h1>Teacher info</h1>
+                <span class="close">&times;</span>
+            </div>
+            <div class="content-modal-info">
+                <div class="left-modal">
+                    <img id="modalImage" src="" alt="Teacher Image" class="modal-image">
+                </div>
+                <div class="right-modal">
+                    <h2 id="modalName"></h2>
+                    <p><strong><span id="modalSubject"></span></strong></p>
+                    <p><span id="modalCountry"></span></p>
+                    <p><span id="modalAge"></span>, Male</p>
+                    <a href="#"><span id="modalEmail"></span></a>
+                    <p><span id="modalNumber"></span></p>
+                    <button id="modalFavoriteButton" class="favorite-button">☆</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+    <section class="teachers-table">
+        <h1>Teachers`s Statistics</h1>
+
+        <table id="teachers-table">
+            <thead>
+                <tr>
+                    <th id="sort-name">Name</th>
+                    <th id="sort-course">Speciality</th>
+                    <th id="sort-age">Age</th>
+                    <th id="sort-gender">Gender</th>
+                    <th id="sort-country">Nationality</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="pagination" id="statsPagination"></div>
+    </section>
+
+    <div class="line"></div>
+
+    <section class="favorites">
+        <h1>Favorites</h1>
+        <div class="favorites-container">
+            <button class="scroll-button left">&lt;</button>
+            <div class="favorites-list" id="favorites-list">
+            </div>
+            <button class="scroll-button right">&gt;</button>
+        </div>
+    </section>
+    <div class="line"></div>
+
+    <section class="footer">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="buttons-footer">
+            <ul>
+                <li><a href="#">Teachers</a></li>
+                <li><a href="#">Statistics</a></li>
+                <li><a href="#">Favorites</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <button class="button-add" type="submit">Add teacher</button>
+        </div>
+    </section>
+
+    <section class="pop-add">
+        <div class="pop-add-content">
+            <div class="pop-add-header">
+                <h2>Add Teacher</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="pop-add-body">
+                <form>
+                    <div class="form-group-name">
+                        <label for="name">Name*</label>
+                        <input type="text" id="name" placeholder="Enter name" required>
+                    </div>
+                    <div class="form-group-spec">
+                        <label for="speciality">Speciality*</label>
+                        <input type="text" id="speciality" placeholder="Mathematics" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group-place">
+                            <label for="country">Country*</label>
+                            <input type="text" id="country" placeholder="Ukraine" required>
+                        </div>
+                        <div class="form-group-place">
+                            <label for="city">City*</label>
+                            <input type="text" id="city" placeholder="City" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group-place">
+                            <label for="phone">Phone*</label>
+                            <input type="text" id="phone" placeholder="Phone" required>
+                        </div>
+                        <div class="form-group-place">
+                            <label for="email">Email*</label>
+                            <input type="email" id="email" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <div class="form-group-birth">
+                        <label for="dob">Date of birth*</label>
+                        <input type="date" id="dob" required>
+                    </div>
+                    <div class="form-group-birth">
+                        <label>Sex*</label>
+                        <div class="sex-options">
+                            <label><input type="radio" name="sex" value="male" required> Male</label>
+                            <label><input type="radio" name="sex" value="female"> Female</label>
+                            <label><input type="radio" name="sex" value="other"> Other</label>
+                        </div>
+                    </div>
+                    <div class="form-group-color">
+                        <label for="bg-color">Background color</label>
+                        <input type="color" id="bg-color" value="#fffff">
+                    </div>
+                    <div class="form-group-notes">
+                        <label for="notes">Notes (optional)</label>
+                        <textarea id="notes" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="pop-add-footer">
+                <button type="button" class="add-button">Add</button>
+            </div>
+        </div>
+    </section>
+
+    <table>
+        <caption></caption>
+    </table>
+
+    <p><small></small></p>
+    <img src="" alt="">
+    a
+
+</body>
+<script type="module" src="ts/data.js"></script>
+<script src="js/header.js"></script>
+<script src="js/teachers.js"></script>
+<script src="js/favorite.js"></script>
+<script src="js/pop-add.js"></script>
+</html>

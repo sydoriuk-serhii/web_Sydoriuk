@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 2</title>
+    <link rel="stylesheet" href="scss/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+        <div class="up-header">
+            <nav class="desktop-menu">
+                <div class="up-menu">
+                    <img class="logo-desc" src="img/logo/logo.png" alt="Logo">
+                    <form>
+                        <input type="text" placeholder="Name, note or age to search">
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="under-menu">
+                    <ul>
+                        <li><a href="#">Teachers</a></li>
+                        <li><a href="#">Statistics</a></li>
+                        <li><a href="#">Favorites</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                    <button class="button-add" type="submit">Add teacher</button>
+                </div>
+            </nav>
+            <div class="mob-head">
+                <img class="logo-mob" src="img/logo/logo.png" alt="Logo">
+                <div class="burger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>  
+        </div>
+        <div class="mobile-menu">
+            <div class="close-menu"></div>
+            <form>
+                <input type="text" placeholder="Name, note or age to search">
+                <button type="submit">Search</button>
+            </form>
+            <ul>
+                <li><a href="#">Teachers</a></li>
+                <li><a href="#">Statistics</a></li>
+                <li><a href="#">Favorites</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <button class="button-add" type="submit">Add teacher</button>
+        </div>
+    </div>
+    </header>
+    
+    <div class="line"></div>
+
+    <section class="top-teachers">
+        <h1>Top Teachers</h1>
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="age">Age</label>
+                    <select id="age">
+                        <option value="18-31">18-31</option>
+                        <option value="32-45">32-45</option>
+                        <option value="46+">46+</option>
+                    </select>
+                </div>
+        
+                <div class="filter-group">
+                    <label for="region">Region</label>
+                    <select id="region">
+                        <option value="Europe">Europe</option>
+                        <option value="Asia">Asia</option>
+                        <option value="North America">North America</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+        
+                <div class="filter-group">
+                    <label for="sex">Sex</label>
+                    <select id="sex">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+        
+                <div class="filter-group">
+                    <label>
+                        <input type="checkbox" id="onlyWithPhoto"> Only with photo
+                    </label>
+                </div>
+        
+                <div class="filter-group">
+                    <label>
+                        <input type="checkbox" id="onlyFavorites"> Only favorites
+                    </label>
+                </div>
+            </div>
+        <div class="teachers">
+            <!-- Ihor Tkachuk -->
+            <div class="teacher" data-name="Ihor Tkachuk" data-subject="Chemistry" data-country="Ukraine" data-age="30" data-region="Europe" data-image="img/teachers/teacher1.jpg">
+                <img src="img/teachers/teacher1.jpg" alt="Ihor Tkachuk">
+                <h2>Ihor<br>Tkachuk</h2>
+                <p>Chemistry</p>
+                <h3>Ukraine</h3>
+            </div>
+    
+            <!-- Pragg Rameshbabu -->
+            <div class="teacher" data-name="Pragg Rameshbabu" data-subject="Chess" data-country="India" data-age="18" data-region="Asia" data-image="img/teachers/teacher2.jpg">
+                <img src="img/teachers/teacher2.jpg" alt="Pragg Rameshbabu">
+                <h2>Pragg<br>Rameshbabu</h2>
+                <p>Chess</p>
+                <h3>India</h3>
+            </div>
+    
+            <!-- Floor Jansen -->
+            <div class="teacher" data-name="Floor Jansen" data-subject="Vocal" data-country="Denmark" data-age="31" data-region="Europe" data-image="img/teachers/teacher3.jpg">
+                <img src="img/teachers/teacher3.jpg" alt="Floor Jansen">
+                <h2>Floor<br>Jansen</h2>
+                <p>Vocal</p>
+                <h3>Denmark</h3>
+            </div>
+    
+            <!-- John Burke -->
+            <div class="teacher" data-name="John Burke" data-subject="Computer Science" data-country="Belgium" data-age="28" data-region="Europe" data-image="img/teachers/teacher4.jpg">
+                <img src="img/teachers/teacher1.jpg" alt="John Burke">
+                <h2>John<br>Burke</h2>
+                <p>Computer Science</p>
+                <h3>Belgium</h3>
+            </div>
+    
+            <!-- Ari Tang -->
+            <div class="teacher" data-name="Ari Tang" data-subject="Biology" data-country="China" data-age="25" data-region="Asia" data-image="img/teachers/teacher5.jpg">
+                <img src="img/teachers/teacher2.jpg" alt="Ari Tang">
+                <h2>Ari<br>Tang</h2>
+                <p>Biology</p>
+                <h3>China</h3>
+            </div>
+    
+            <!-- Anna Muzychuk -->
+            <div class="teacher" data-name="Anna Muzychuk" data-subject="Chess" data-country="Ukraine" data-age="32" data-region="Europe" data-image="img/teachers/teacher6.jpg">
+                <img src="img/teachers/teacher3.jpg" alt="Anna Muzychuk">
+                <h2>Anna<br>Muzychuk</h2>
+                <p>Chess</p>
+                <h3>Ukraine</h3>
+            </div>
+    
+            <!-- Rachel Ljuboevic -->
+            <div class="teacher" data-name="Rachel Ljuboevic" data-subject="Medicine" data-country="Belarus" data-age="29" data-region="Europe" data-image="img/teachers/teacher7.jpg">
+                <img src="img/teachers/teacher1.jpg" alt="Rachel Ljuboevic">
+                <h2>Rachel<br>Ljuboevic</h2>
+                <p>Medicine</p>
+                <h3>Belarus</h3>
+            </div>
+    
+            <!-- Radoslaw A.M. -->
+            <div class="teacher" data-name="Radoslaw A.M." data-subject="Physics" data-country="Poland" data-age="27" data-region="Europe" data-image="img/teachers/teacher8.jpg">
+                <img src="img/teachers/teacher2.jpg" alt="Radoslaw A.M.">
+                <h2>Radoslaw<br>A.M.</h2>
+                <p>Physics</p>
+                <h3>Poland</h3>
+            </div>
+        </div>
+    </section>
+    
+    <div id="teacherModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-head">
+                <h1>Teacher info</h1>
+                <span class="close">&times;</span>
+            </div>
+            <div class="content-modal-info">
+                <div class="left-modal">
+                    <img id="modalImage" src="" alt="Teacher Image" class="modal-image">
+                </div>
+                <div class="right-modal">
+                    <h2 id="modalName"></h2>
+                    <p><strong><span id="modalSubject"></span></strong></p>
+                    <p><span id="modalCountry"></span></p>
+                    <p><span id="modalAge"></span>,Male</p>
+                    <a href="#"><span id="modalEmail"></span></a>
+                    <p>+380961234100</p>
+                </div>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+    <section class="teachers-table">
+        <h1>Teachers List</h1>
+    
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Speciality</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Nationality</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Daisy Alexander</td>
+                    <td>Chemistry</td>
+                    <td>28</td>
+                    <td>Female</td>
+                    <td>Vietnam</td>
+                </tr>
+                <tr>
+                    <td>Julia Bradley</td>
+                    <td>Math</td>
+                    <td>26</td>
+                    <td>Female</td>
+                    <td>USA</td>
+                </tr>
+                <tr>
+                    <td>Rita Hart</td>
+                    <td>Art</td>
+                    <td>41</td>
+                    <td>Female</td>
+                    <td>Ireland</td>
+                </tr>
+                <tr>
+                    <td>Jonathan Jacobs</td>
+                    <td>Math</td>
+                    <td>32</td>
+                    <td>Male</td>
+                    <td>England</td>
+                </tr>
+                <tr>
+                    <td>Nathaniel White</td>
+                    <td>Computer Science</td>
+                    <td>37</td>
+                    <td>Male</td>
+                    <td>Austria</td>
+                </tr>
+                <tr>
+                    <td>Frank Medina</td>
+                    <td>English</td>
+                    <td>43</td>
+                    <td>Male</td>
+                    <td>Italy</td>
+                </tr>
+                <tr>
+                    <td>Ella Curtis</td>
+                    <td>Chess</td>
+                    <td>34</td>
+                    <td>Female</td>
+                    <td>USA</td>
+                </tr>
+                <tr>
+                    <td>Claire Simmmons</td>
+                    <td>Art</td>
+                    <td>38</td>
+                    <td>Female</td>
+                    <td>Netherlands</td>
+                </tr>
+                <tr>
+                    <td>Benjamin Knight</td>
+                    <td>Biology</td>
+                    <td>44</td>
+                    <td>Male</td>
+                    <td>Scotland</td>
+                </tr>
+                <tr>
+                    <td>Norma Rose</td>
+                    <td>Statistics</td>
+                    <td>36</td>
+                    <td>Female</td>
+                    <td>France</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <div class="pagination">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>...</span>
+            <span>Last</span>
+        </div>
+    </section>
+
+    <div class="line"></div>
+
+    <section class="favorites">
+        <h1>Favorites</h1>
+    
+        <div class="favorites-container">
+            <button class="scroll-button left">&lt;</button>
+            <div class="favorites-list">
+                <div class="favorite-item">
+                    <img src="img/teachers/teacher1.jpg" alt="A.M">
+                    <h2>Norma Rose</h2>
+                    <p>Ukraine</p>
+                </div>
+                <div class="favorite-item">
+                    <img src="img/teachers/teacher2.jpg" alt="Ihor Tkachuk">
+                    <h2>Ihor Tkachuk</h2>
+                    <p>Ukraine</p>
+                </div>
+                <div class="favorite-item">
+                    <img src="img/teachers/teacher3.jpg" alt="Anna Makarevich">
+                    <h2>Anna Makarev</h2>
+                    <p>Belarus</p>
+                </div>
+                <div class="favorite-item">
+                    <img src="img/teachers/teacher1.jpg" alt="John Burke">
+                    <h2>John Burke</h2>
+                    <p>Belgium</p>
+                </div>
+                <div class="favorite-item">
+                    <img src="img/teachers/teacher2.jpg" alt="Ari Tang">
+                    <h2>Ari Tang</h2>
+                    <p>China</p>
+                </div>
+                <div class="favorite-item">
+                    <img src="img/teachers/teacher3.jpg" alt="Floor Jansen">
+                    <h2>Floor Jansen</h2>
+                    <p>Denmark</p>
+                </div>
+            </div>
+            <button class="scroll-button right">&gt;</button>
+        </div>
+    </section>
+
+    <div class="line"></div>
+
+    <section class="footer">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="buttons-footer">
+            <ul>
+                <li><a href="#">Teachers</a></li>
+                <li><a href="#">Statistics</a></li>
+                <li><a href="#">Favorites</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <button class="button-add" type="submit">Add teacher</button>
+        </div>
+    </section>
+
+    <section class="pop-add">
+        <div class="pop-add-content">
+            <div class="pop-add-header">
+                <h2>Add Teacher</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="pop-add-body">
+                <form>
+                    <div class="form-group-name">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Enter name">
+                    </div>
+                    <div class="form-group-spec">
+                        <label for="speciality">Speciality</label>
+                        <input type="text" id="speciality" placeholder="Mathematics">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group-place">
+                            <label for="country">Country</label>
+                            <input type="text" id="country" placeholder="Ukraine">
+                        </div>
+                        <div class="form-group-place">
+                            <label for="city">City</label>
+                            <input type="text" id="city" placeholder="City">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group-place">
+                            <label for="phone">Phone</label>
+                            <input type="text" id="phone" placeholder="Phone">
+                        </div>
+                        <div class="form-group-place">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group-birth">
+                        <label for="dob">Date of birth</label>
+                        <input type="text" id="dob" placeholder="dd/mm/yyyy">
+                    </div>
+                    <div class="form-group-birth">
+                        <label>Sex</label>
+                        <div class="sex-options">
+                            <label><input type="radio" name="sex" value="male"> Male</label>
+                            <label><input type="radio" name="sex" value="female"> Female</label>
+                        </div>
+                    </div>
+                    <div class="form-group-color">
+                        <label for="bg-color">Background color</label>
+                        <input type="color" id="bg-color">
+                    </div>
+                    <div class="form-group-notes">
+                        <label for="notes">Notes (optional)</label>
+                        <textarea id="notes" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="pop-add-footer">
+                <button type="submit" class="add-button">Add</button>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+<script src="js/header.js"></script>
+<script src="js/teachers.js"></script>
+<script src="js/favorite.js"></script>
+<script src="js/pop-add.js"></script>
+</html>
