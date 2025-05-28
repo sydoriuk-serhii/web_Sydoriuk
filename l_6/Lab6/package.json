@@ -1,9 +1,24 @@
 {
-    "type": "module",
-    "devDependencies": {
-        "json-server": "^1.0.0-beta.3"
-    },
-    "scripts": {
-        "api": "json-server --watch db.json --port 3001"
-    }
+  "name": "pure-html-ts-project",
+  "version": "1.0.0",
+  "scripts": {
+    "server": "json-server --watch db.json --port 3001",
+    "dev": "concurrently \"npm run server\" \"live-server\"",
+    "build": "tsc",
+    "start": "npm run build && live-server"
+  },
+  "devDependencies": {
+    "@types/chart.js": "^2.9.41",
+    "@types/leaflet": "^1.9.17",
+    "@types/lodash": "^4.17.16",
+    "concurrently": "^8.2.2",
+    "json-server": "^0.17.4",
+    "live-server": "^1.2.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.9",
+    "leaflet": "^1.9.4",
+    "lodash": "^4.17.21"
+  }
 }

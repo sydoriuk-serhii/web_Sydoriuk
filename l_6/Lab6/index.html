@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 6</title>
+    <link rel="stylesheet" href="scss/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #map { 
+            height: 200px; 
+            width: 100%; 
+            margin-top: 15px;
+        }
+        .chart-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px auto;
+            max-width: 1200px;
+        }
+        .chart-wrapper {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        #teachersChart, #regionChart {
+            width: 100% !important;
+            height: auto !important;
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="up-header">
+                <nav class="desktop-menu">
+                    <div class="up-menu">
+                        <img class="logo-desc" src="img/logo/logo.png" alt="Logo">
+                        <form id="searchForm">
+                            <input type="text" id="searchInput" placeholder="Name, note or age to search">
+                            <button type="submit">Search</button>
+                        </form>
+                    </div>
+                    <div class="under-menu">
+                        <ul>
+                            <li><a href="#">Teachers</a></li>
+                            <li><a href="#">Statistics</a></li>
+                            <li><a href="#">Favorites</a></li>
+                            <li><a href="#">About</a></li>
+                        </ul>
+                        <button class="button-add" type="submit" id="addTeacherBtnHeader">Add teacher</button>
+                    </div>
+                </nav>
+                <div class="mob-head">
+                    <img class="logo-mob" src="img/logo/logo.png" alt="Logo">
+                    <div class="burger-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <div class="close-menu"></div>
+                <form>
+                    <input type="text" placeholder="Name, note or age to search">
+                    <button type="submit">Search</button>
+                </form>
+                <ul>
+                    <li><a href="#">Teachers</a></li>
+                    <li><a href="#">Statistics</a></li>
+                    <li><a href="#">Favorites</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <button class="button-add" type="submit" id="addTeacherBtnMobile">Add teacher</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="line"></div>
+
+    <section class="top-teachers">
+        <h1>Top Teachers</h1>
+        <div class="filters">
+            <div class="filter-group">
+                <label for="age">Age</label>
+                <select id="age">
+                    <option value="All">All</option>
+                    <option value="18-31">18-31</option>
+                    <option value="32-45">32-45</option>
+                    <option value="46+">46+</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="region">Region</label>
+                <select id="region">
+                    <option value="All">All</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Asia">Asia</option>
+                    <option value="North America">North America</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="sex">Sex</label>
+                <select id="sex">
+                    <option value="All">All</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>
+                    <input type="checkbox" id="onlyWithPhoto"> Only with photo
+                </label>
+            </div>
+
+            <div class="filter-group">
+                <label>
+                    <input type="checkbox" id="onlyFavorites"> Only favorites
+                </label>
+            </div>
+        </div>
+        <div class="users-container" id="users-container"></div>
+        <div class="pagination" id="topTeachersPagination"></div>
+    </section>
+
+    <div class="line"></div>
+
+    <section class="chart-container">
+        <div class="chart-wrapper">
+            <h2 style="text-align: center;">Teachers by Course</h2>
+            <canvas id="teachersChart"></canvas>
+        </div>
+        <div class="chart-wrapper">
+            <h2 style="text-align: center;">Teachers by Region</h2>
+            <canvas id="regionChart"></canvas>
+        </div>
+    </section>
+
+    <div class="line"></div>
+
+    <section class="favorites">
+        <h1>Favorites</h1>
+        <div class="favorites-container">
+            <button class="scroll-button left">&lt;</button>
+            <div class="favorites-list" id="favorites-list"></div>
+            <button class="scroll-button right">&gt;</button>
+        </div>
+    </section>
+
+    <div class="line"></div>
+
+    <div id="teacherModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-head">
+                <h1>Teacher info</h1>
+                <span class="close">&times;</span>
+            </div>
+            <div class="content-modal-info">
+                <div class="left-modal">
+                    <img id="modalImage" src="" alt="Teacher Image" class="modal-image">
+                </div>
+                <div class="right-modal">
+                    <h2 id="modalName"></h2>
+                    <p><strong><span id="modalSubject"></span></strong></p>
+                    <p><span id="modalCountry"></span></p>
+                    <p><span id="modalAge"></span>, <span id="modalGender"></span></p>
+                    <a href="#" id="modalEmailLink"><span id="modalEmail"></span></a>
+                    <p><span id="modalNumber"></span></p>
+                    <button id="modalFavoriteButton" class="favorite-button">☆</button>
+                </div>
+                <div class="map-modal" id="map"></div>
+            </div>
+            <div class="modal-row">
+                <span class="modal-label">Next birthday:</span>
+                <span id="modalBirthdayCountdown" class="modal-value"></span>
+            </div>
+        </div>
+    </div>
+
+    <section class="footer">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="buttons-footer">
+            <ul>
+                <li><a href="#">Teachers</a></li>
+                <li><a href="#">Statistics</a></li>
+                <li><a href="#">Favorites</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <button class="button-add" type="submit" id="addTeacherBtnFooter">Add teacher</button>
+        </div>
+    </section>
+
+    <section class="pop-add">
+        <div class="pop-add-content">
+            <div class="pop-add-header">
+                <h2>Add Teacher</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="pop-add-body">
+                <form id="addTeacherForm">
+                    <div class="form-group-name">
+                        <label for="name-add">Name*</label>
+                        <input type="text" id="name-add" placeholder="Enter name" required>
+                    </div>
+                    <div class="form-group-spec">
+                        <label for="speciality-add">Speciality*</label>
+                        <input type="text" id="speciality-add" list="coursesDatalist" placeholder="Mathematics" required>
+                        <datalist id="coursesDatalist"></datalist>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group-place">
+                            <label for="country-add">Country*</label>
+                            <input type="text" id="country-add" placeholder="Ukraine" required>
+                        </div>
+                        <div class="form-group-place">
+                            <label for="city-add">City*</label>
+                            <input type="text" id="city-add" placeholder="City" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group-place">
+                            <label for="phone-add">Phone*</label>
+                            <input type="text" id="phone-add" placeholder="Phone" required>
+                        </div>
+                        <div class="form-group-place">
+                            <label for="email-add">Email*</label>
+                            <input type="email" id="email-add" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <div class="form-group-birth">
+                        <label for="dob-add">Date of birth*</label>
+                        <input type="date" id="dob-add" required>
+                    </div>
+                    <div class="form-group-birth">
+                        <label>Sex*</label>
+                        <div class="sex-options">
+                            <label><input type="radio" name="sex-add" value="male" required> Male</label>
+                            <label><input type="radio" name="sex-add" value="female"> Female</label>
+                            <label><input type="radio" name="sex-add" value="other"> Other</label>
+                        </div>
+                    </div>
+                    <div class="form-group-color">
+                        <label for="bg-color-add">Background color</label>
+                        <input type="color" id="bg-color-add" value="#fffff">
+                    </div>
+                    <div class="form-group-notes">
+                        <label for="notes-add">Notes (optional)</label>
+                        <textarea id="notes-add" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="pop-add-footer">
+                <button type="button" class="add-button">Add</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    <script src="https://unpkg.com/dayjs@1.10.7/dayjs.min.js"></script>
+    <script src="ts/data.js" defer></script>
+</body>
+</html>

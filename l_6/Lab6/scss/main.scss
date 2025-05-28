@@ -1,0 +1,15 @@
+@import './blocks/header';
+@import './blocks/top-teachers';
+@import './blocks/statistics';
+@import './blocks/favorities';
+@import './blocks/footer';
+@import './blocks/pop-add';
+
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}

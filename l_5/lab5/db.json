@@ -1,5 +1,32 @@
 {
   "teachers": [
-    
+    {
+      "gender": "male",
+      "title": "",
+      "full_name": "SYDORIUK SERHII",
+      "city": "М. КРОПИВНИЦЬКИЙ",
+      "state": "",
+      "country": "Україна",
+      "postcode": "",
+      "coordinates": {
+        "latitude": "-",
+        "longitude": "-"
+      },
+      "timezone": {
+        "offset": "-",
+        "description": "-"
+      },
+      "email": "uezapb@gmail.com",
+      "b_date": "2000-01-01",
+      "age": 25,
+      "phone": "0984445369",
+      "picture_large": "https://randomuser.me/api/portraits/lego/1.jpg",
+      "picture_thumbnail": "https://randomuser.me/api/portraits/lego/1.jpg",
+      "id": "dj77rg1",
+      "favorite": false,
+      "course": "DD",
+      "bg_color": "#000000",
+      "note": "hello"
+    }
   ]
 }

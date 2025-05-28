@@ -1,0 +1,270 @@
+.pop-add {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+
+    .pop-add-content {
+        width: 90%;
+        max-width: 500px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+
+        .pop-add-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            background-color: #525252;
+            border-bottom: 1px solid #ddd;
+
+            h2 {
+                margin: 0;
+                font-size: 20px;
+                color: white;
+            }
+            h2 :hover 
+
+            .close {
+                font-size: 24px;
+                cursor: pointer;
+                color: white;
+                &:hover {
+                    color: #f75c49;
+                }
+            }
+        }
+
+        .pop-add-body {
+
+            .form-group-name {
+                margin-top: 20px;
+            }
+
+            .form-group-name, .form-group-spec {
+                margin-bottom: 16px;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+
+                label {
+                    display: block;
+                    margin-bottom: 8px;
+                    font-weight: 500;
+                }
+
+                input[type="text"],
+                input[type="email"],
+                input[type="color"],
+                textarea {
+                    width: 96%;
+                    padding: 8px;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    font-size: 14px;
+                }
+
+                textarea {
+                    resize: vertical;
+                }
+
+                .sex-options {
+                    display: flex;
+                    gap: 16px;
+
+                    label {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                    }
+                }
+            }
+
+            .form-row {
+                display: flex;
+                gap: 16px;
+
+                .form-group {
+                    flex: 1;
+                    position: relative;
+                }
+            }
+        }
+
+        .form-row {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-group-place {
+            margin-bottom: 16px;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: 500;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="color"],
+            textarea {
+                padding: 8px;
+                width: 92%;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 14px;
+            }
+
+            textarea {
+                resize: vertical;
+            }
+
+            .sex-options {
+                display: flex;
+                gap: 16px;
+
+                label {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+            }
+        }
+
+
+        .form-group-birth {
+            margin-bottom: 16px;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: 500;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="color"],
+            textarea {
+                padding: 8px;
+                width: 45%;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 14px;
+            }
+
+            textarea {
+                resize: vertical;
+            }
+
+            .sex-options {
+                display: flex;
+                gap: 16px;
+
+                label {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+            }
+        }
+
+
+        .form-group-color {
+            display: flex;
+            align-items: center;
+            width: 90%;
+            margin-left: 5%;
+            gap: 20px;
+        }
+
+        .form-group-notes {
+            margin-bottom: 16px;
+            width: 90%;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: 500;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="color"],
+            textarea {
+                width: 96%;
+                padding: 8px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 14px;
+            }
+
+            textarea {
+                resize: vertical;
+            }
+
+            .sex-options {
+                display: flex;
+                gap: 16px;
+
+                label {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+            }
+        }
+
+        .form-row {
+            display: flex;
+            gap: 16px;
+
+            .form-group {
+                flex: 1;
+                border: #f75c49 solid 2px;
+                position: relative;
+            }
+        }
+    }
+
+        .pop-add-footer {
+
+            .add-button {
+                padding: 8px 16px;
+                background-color: white;
+                color: #f75c49;
+                border: 2px solid #f75c49;
+                width: 90%;
+                margin-left: 5%;
+                margin-bottom: 20px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 14px;
+                
+                &:hover {
+                    background-color: #f75c49;
+                    color: white;
+                }
+            }
+        }
+    }
+
+  
